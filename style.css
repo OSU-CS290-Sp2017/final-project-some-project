@@ -1,1 +1,42 @@
 /* css here */
+.site-title {
+  font-size: 30px;
+  color: blue;
+}
+
+.alphabet-container {
+
+}
+.letter-content {
+  width: 200px;
+  height: 80px;
+
+  padding: 50px;
+  padding-left: 40px;
+  margin: 5px;
+  border: black 2px;
+
+  background-color: dodgerblue;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: center;
+  flex: 1 25%;
+}
+
+.letter-text {
+  font-size: 20px;
+  color: whitesmoke;
+  text-align: left;
+}
+
+.letter {
+  font-size: 20px;
+}
+
+body {
+  background-color: grey;
+  margin: 0;
+  padding: 0;
+
+}
