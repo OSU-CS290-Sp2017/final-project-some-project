@@ -15,6 +15,10 @@ final.get('/', function(req, res, next){
 	});
 })
 
+final.get('*', function(req, res, next){
+	res.render('404LUL');
+})
+
 final.listen(port, function(){
 	console.log("Starting up final project");
 });
