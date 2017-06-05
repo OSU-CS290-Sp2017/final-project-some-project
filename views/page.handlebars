@@ -5,9 +5,22 @@
 {{> header}}
 
 <main class = "alphabet-container">
-
-{{#each letters}}
-	{{> letter}}
-{{/each}}
-
+	{{#each letters}}
+		{{> letter}}
+	{{/each}}
 </main>
+
+{{#if single}}
+	<main class = "alphabet-container">
+		<article class="letter">
+			<div class="letter-content">
+	        	<p class="letter-attribution">
+	            	<a href="#"> {{alpha}} </a>
+	        	</p>
+	        	<p class="letter-text">
+	            	{{description}}
+	        	</p>
+	    	</div>
+		</article>
+	</main>
+{{/if}}
