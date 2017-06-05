@@ -5,7 +5,9 @@
 }
 
 .alphabet-container {
-
+  margin: 50px 10%;
+  display: flex;
+  flex-wrap: wrap;
 }
 .letter-content {
   width: 200px;
@@ -18,16 +20,13 @@
 
   background-color: dodgerblue;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
   flex: 1 25%;
 }
 
 .letter-text {
   font-size: 20px;
   color: whitesmoke;
-  text-align: left;
+  text-align: right;
 }
 
 .letter {
