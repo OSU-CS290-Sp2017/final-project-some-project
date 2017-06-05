@@ -9,9 +9,11 @@ final.engine('handlebars', handle({defaultLayout: 'main'}));
 final.set('view engine', 'handlebars');
 final.use(express.static(path.join(__dirname, 'public')));
 
-
-
-
+final.get('/', function(req, res, next){
+	res.render('page', {
+		letters: letterNum
+	});
+})
 
 final.listen(port, function(){
 	console.log("Starting up final project");
