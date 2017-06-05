@@ -33,6 +33,10 @@
   font-size: 20px;
 }
 
+.error-container{
+  text-align: center;
+}
+
 body {
   background-color: pink;
   margin: 0;
