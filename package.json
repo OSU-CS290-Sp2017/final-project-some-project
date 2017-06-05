@@ -1,10 +1,8 @@
 {
   "name": "final-project",
   "version": "1.0.0",
-  "description": "Final Project that will showcase the alphabet",
+  "description": "Final project that will display all of the letters of the alphabet",
   "main": "server.js",
-  "dependencies": {},
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -18,5 +16,7 @@
   "bugs": {
     "url": "https://github.com/OSU-CS290-Sp2017/final-project-some-project/issues"
   },
-  "homepage": "https://github.com/OSU-CS290-Sp2017/final-project-some-project#readme"
+  "homepage": "https://github.com/OSU-CS290-Sp2017/final-project-some-project#readme",
+  "dependencies": {},
+  "devDependencies": {}
 }
