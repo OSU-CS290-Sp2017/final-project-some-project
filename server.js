@@ -9,15 +9,15 @@ final.engine('handlebars', handle({defaultLayout: 'main'}));
 final.set('view engine', 'handlebars');
 final.use(express.static(path.join(__dirname, 'public')));
 
-final.get('/', function(req, res, next){
-	res.render('page', {
+final.get('/', function(request, response, next){
+	response.render('page', {
 		letters: letterNumber,
 		single: false
 	});
 });
 
-final.get('/letters/:index', function(req, res, next){
-	var index = req.params.index;
+final.get('/letters/:index', function(request, response, next){
+	var index = request.params.index;
 	switch(index){
 		case 'a': case 'A':
 			index = 0; break;
@@ -74,24 +74,23 @@ final.get('/letters/:index', function(req, res, next){
 	}
 	var specificLetter = letterNumber[index];
 	if(specificLetter){
-		res.render('page', {
+		response.render('page', {
 			alpha: specificLetter.letter,
 			description: specificLetter.description,
 			single: true
 		});
-		console.log(specificLetter.letter + " " + specificLetter.description);
 	}
 	else{
 		next();
 	}
 });
 
-final.get('*', function(req, res, next){
-	res.render('404LUL');
+final.get('*', function(request, response, next){
+	response.render('404LUL');
 });
 
-final.get('/letters/*', function(req, res, next){
-	res.render('404LUL');
+final.get('/letters/*', function(request, response, next){
+	response.render('404LUL');
 })
 
 final.listen(port, function(){
