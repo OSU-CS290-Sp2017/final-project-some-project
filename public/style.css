@@ -1,45 +1,45 @@
 /* css here */
 .site-title {
   font-size: 30px;
-  color: blue;
+  font-family: "Times New Roman", Times, serif;
+  color: white;
+  text-align: center;
+}
+
+/* gets rid of the underlines */
+a:hover, a:visited, a:link, a:active {
+    text-decoration: none;
 }
 
 .alphabet-container {
-  margin: 50px 10%;
-  display: flex;
-  flex-wrap: wrap;
+  text-align: center;
 }
 .letter-content {
-  width: 200px;
-  height: 80px;
 
-  padding: 50px;
-  padding-left: 40px;
-  margin: 5px;
-  border: black 2px;
-
+  width: 250px;
+  height: 150px;
+  margin: 10px;
+  /* display: flex; */
   background-color: dodgerblue;
-  display: flex;
-  flex: 1 25%;
+  position: relative;
+  display: block;
+
 }
 
 .letter-text {
   font-size: 20px;
   color: whitesmoke;
-  text-align: right;
-}
-
-.letter {
-  font-size: 20px;
-}
-
-.error-container{
-  margin: 10px 0;
   text-align: center;
 }
 
+.letter {
+  font-size: 30px;
+  display: flex; /* where this goes */
+
+}
+
 body {
-  background-color: pink;
+  background-color: grey;
   margin: 0;
   padding: 0;
 
