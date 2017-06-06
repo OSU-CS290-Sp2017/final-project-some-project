@@ -1,0 +1,46 @@
+/* css here */
+.site-title {
+  font-size: 30px;
+  font-family: "Times New Roman", Times, serif;
+  color: white;
+  text-align: center;
+}
+
+/* gets rid of the underlines */
+a:hover, a:visited, a:link, a:active {
+    text-decoration: none;
+}
+
+.alphabet-container {
+  text-align: center;
+}
+.letter-content {
+
+  width: 250px;
+  height: 150px;
+  margin: 10px;
+  /* display: flex; */
+  background-color: dodgerblue;
+  position: relative;
+  display: block;
+
+}
+
+.letter-text {
+  font-size: 20px;
+  color: whitesmoke;
+  text-align: center;
+}
+
+.letter {
+  font-size: 30px;
+  display: flex; /* where this goes */
+
+}
+
+body {
+  background-color: grey;
+  margin: 0;
+  padding: 0;
+
+}
