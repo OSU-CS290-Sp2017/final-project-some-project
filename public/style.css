@@ -36,6 +36,7 @@ a:hover, a:visited, a:link, a:active {
   font-size: 30px;
   display: flex; /* where this goes */
   flex-wrap: wrap;
+  float: left;
 }
 
 body {
