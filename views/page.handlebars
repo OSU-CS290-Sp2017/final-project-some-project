@@ -4,23 +4,11 @@
 
 {{> header}}
 
-<main class = "alphabet-container">
-	{{#each letters}}
-		{{> letter}}
-	{{/each}}
-</main>
-
-{{#if single}}
+{{#if many}}
 	<main class = "alphabet-container">
-		<article class="letter">
-			<div class="letter-content">
-	        	<p class="letter-attribution">
-	            	<a href="/letters/{{@index}}/#"> {{this.alpha}} </a>
-	        	</p>
-	        	<p class="letter-text">
-	            	{{this.description}}
-	        	</p>
-	    	</div>
-		</article>
+		{{#each letters}}
+			{{> letter}}
+		{{/each}}
 	</main>
 {{/if}}
+
