@@ -1,5 +1,4 @@
 var path = require('path');
-var fs = require('fs');
 var express = require('express');
 var handle = require('express-handlebars');
 var letterNumber = require('./letterNumber');
@@ -8,11 +7,12 @@ var port = process.env.PORT || 3000;
 
 final.engine('handlebars', handle({defaultLayout: 'main'}));
 final.set('view engine', 'handlebars');
-/*final.use(express.static(path.join(__dirname, 'public')));*/
+final.use(express.static(path.join(__dirname, 'public')));
 
 final.get('/', function(request, response, next){
 	response.render('page', {
 		letters: letterNumber,
+		alphabet: "Alphabets",
 		many: true,
 		single: false
 	});
@@ -20,6 +20,7 @@ final.get('/', function(request, response, next){
 
 final.get('/letters/:index', function(request, response, next){
 	var index = request.params.index;
+	var alpha = index;
 	switch(index){
 		case 'a': index = 0; break;
 		case 'A': index = 0; break;
@@ -77,7 +78,9 @@ final.get('/letters/:index', function(request, response, next){
 	var specificLetter = letterNumber[index];
 	if(specificLetter){
 		response.render('page', {
-			letter: specificLetter.letter,
+			alphabet: alpha.toUpperCase(),
+			letter: alpha.toUpperCase(),
+			letters: specificLetter.letter,
 			description: specificLetter.description,
 			many: false,
 			single: true
@@ -89,11 +92,17 @@ final.get('/letters/:index', function(request, response, next){
 });
 
 final.get('*', function(request, response, next){
-	response.render('404LUL');
+	response.render('404LUL', {
+		alphabet: "404",
+		letter: "Does Not Exist"
+	});
 });
 
 final.get('/letters/*', function(request, response, next){
-	response.render('404LUL');
+	response.render('404LUL', {
+		alphabet: "404",
+		letter: "Does Not Exist"
+	});
 })
 
 final.listen(port, function(){
