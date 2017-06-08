@@ -6,13 +6,48 @@
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" media="screen">
-    <link rel="stylesheet" href="/style.css" media="screen">
+    <link rel="stylesheet" href="public/style.css" media="screen">
 
   </head>
 
   <body>
     <header>
-      <a href="#"><h1 class="site-title">Alphabet</h1></a>
+      <a href="#"><h1 class="site-title">Alphabets</h1></a>
+      <nav class="navbar">
+        <ul class="navlist">
+          <li class="navitem navlink active"><a href="/index.html">Home</a></li>
+          <li class="navitem navlink button"><a href="#">Letters</a>
+            <div class="dropdown-content">
+              <a href="/letters/A">A</a>
+              <a href="/letters/B">B</a>
+              <a href="/letters/C">C</a>
+              <a href="/letters/D">D</a>
+              <a href="/letters/E">E</a>
+              <a href="/letters/F">F</a>
+              <a href="/letters/G">G</a>
+              <a href="/letters/H">H</a>
+              <a href="/letters/I">I</a>
+              <a href="/letters/J">J</a>
+              <a href="/letters/K">K</a>
+              <a href="/letters/L">L</a>
+              <a href="/letters/M">M</a>
+              <a href="/letters/N">N</a>
+              <a href="/letters/O">O</a>
+              <a href="/letters/P">P</a>
+              <a href="/letters/Q">Q</a>
+              <a href="/letters/R">R</a>
+              <a href="/letters/S">S</a>
+              <a href="/letters/T">T</a>
+              <a href="/letters/U">U</a>
+              <a href="/letters/V">V</a>
+              <a href="/letters/W">W</a>
+              <a href="/letters/X">X</a>
+              <a href="/letters/Y">Y</a>
+              <a href="/letters/Z">Z</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
     </header>
 
     <main class="alphabet-container">
@@ -305,5 +340,8 @@
 
     </main>
   </body>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.runtime.js"></script>
+  <script src="/twitTemplate.js"></script>
+  <script src="/index.js"></script>
 
 </html>
