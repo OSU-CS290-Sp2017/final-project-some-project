@@ -1,0 +1,20 @@
+{{!
+	Add Javascript stuff here
+}}
+var buttonClick = document.getElementsByClassName('button-click')[0];
+var enableVideo = document.getElementsByTagName('iframe')[0];
+var showMessage = document.getElementsByClassName('message')[0];
+var enableImage = document.getElementsByTagName('img')[0];
+
+/*2 addEventListeners, one for showing images and the other for showing videos*/
+buttonClick.addEventListener("click", function(){
+	buttonClick.style.display = "none";
+	showMessage.style.visibility = "visible";
+	enableImage.style.display = "block";
+});
+
+buttonClick.addEventListener("click", function(){
+	buttonClick.style.display = "none";
+	showMessage.style.visibility = "visible";
+	enableVideo.style.display = "block";
+});

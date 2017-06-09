@@ -1,0 +1,143 @@
+{{!
+	Add CSS stuff here
+}}
+
+.site-title {
+    background-color: green;
+   	top: 50%;
+   	margin: 0;
+	font-size: 30px;
+	height: 50px;
+	font-family: "Times New Roman", Times, serif;
+	color: white;
+    text-align: center;
+}
+
+a:hover, a:visited, a:link, a:active {
+    text-decoration: none;
+}
+
+.navbar {
+	margin: 0;
+	padding: 0;
+	background-color: red;
+ 	font-size: 18px;
+  	line-height: 30px;
+}
+
+.navlist {
+  	margin: 0 0 0 20px;
+  	padding: 0;
+}
+
+.navitem {
+    display: inline-block;
+}
+
+.navlink a {
+    padding: 8px 5px;
+    display: inline-block;
+}
+
+.navlink.active {
+    box-shadow: inset 0 -5px #319df6;
+}
+
+.alphabet-container {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.letter-content {
+	width: 250px;
+ 	height: 150px;
+	margin: 10px;
+    background-color: dodgerblue;
+	position: relative;
+	display: block;
+}
+
+.letter-text {
+  	font-size: 20px;
+  	color: whitesmoke;
+  	text-align: center;
+}
+
+.letter{
+	font-size: 30px;
+		display: flex; /* where this goes */
+	flex: 0 1 25%;	
+}
+
+.error-container{
+	text-align: center;
+}
+
+.button{
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+}
+
+.dropdown-content{
+	display: none;
+	position: absolute;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+	background-color: pink;
+
+}
+
+a.dropdown-content{
+	color: black;
+	padding: 12px 16px;
+	display: block;
+}
+
+.dropdown-content a:hover{
+	background-color: pink;
+}
+
+.button:hover .dropdown-content{
+	position: absolute;
+		display: block;
+}
+
+.button-click{
+	display: block;
+	height: 200px;
+	width: 200px;
+	background-color: dodgerblue;
+	cursor: pointer;
+	border-radius: 50px;
+	position: relative;
+	bottom: -200px;
+	margin: 0 auto;			
+}
+
+p.message{
+	visibility: hidden;
+	font-size: 50px;
+	text-align: center;
+	position: relative;
+}
+
+iframe{
+	display: none;
+	margin: 0 auto;
+	bottom: -100px;
+}
+
+img{
+	display: none;
+	margin: 0 auto;
+	bottom: -100px;
+}
+
+body{
+	background-color: grey;
+	margin: 0;
+	padding: 0;
+}
