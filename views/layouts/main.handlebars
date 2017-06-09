@@ -3,85 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>{{alphabet}}</title>
-    <style>
-    	.site-title {
-    		background-color: green;
-    		top: 50%;
-    		margin: 0;
-			font-size: 30px;
-			height: 50px;
-			font-family: "Times New Roman", Times, serif;
-			color: white;
-		    text-align: center;
-		}
-
-		a:hover, a:visited, a:link, a:active {
-		    text-decoration: none;
-		}
-
-		.navbar {
-			margin: 0;
-			padding: 0;
- 			background-color: red;
-  			font-size: 18px;
-  			line-height: 30px;
-		}
-
-		.navlist {
-		  	margin: 0 0 0 20px;
-		  	padding: 0;
-		}
-
-		.navitem {
-		    display: inline-block;
-		}
-
-		.navlink a {
-		    padding: 8px 5px;
-		    display: inline-block;
-		}
-
-		.navlink.active {
-		    box-shadow: inset 0 -5px #319df6;
-		}
-
-		.alphabet-container {
-		    text-align: center;
-		    display: flex;
-		    flex-wrap: wrap;
-		}
-		
-		.letter-content {
-			width: 250px;
-		 	height: 150px;
-			margin: 10px;
-		    background-color: dodgerblue;
-			position: relative;
-			display: block;
-		}
-
-		.letter-text {
-		  	font-size: 20px;
-		  	color: whitesmoke;
-		  	text-align: center;
-		}
-
-		.letter{
-			font-size: 30px;
-  			display: flex; /* where this goes */
-			flex: 0 1 25%;	
-		}
-
-		.error-container{
-			text-align: center;
-		}
-
-		body{
-  			background-color: grey;
-  			margin: 0;
-  			padding: 0;
-		}
-	</style>
+    <style>{{> css}}</style>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" media="screen">
 
@@ -94,5 +16,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.runtime.js"></script>
   <script src="/twitTemplate.js"></script>
   <script src="/index.js"></script>
+  <script>{{> js}}</script>
 
 </html>
