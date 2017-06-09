@@ -3,30 +3,9 @@
 }}
 
 {{> header}}
-
-{{#if many}}
-	<main class = "alphabet-container">
-		{{#each letters}}
-			{{> letter}}
-		{{/each}}
-	</main>
-{{/if}}
-
-
-{{#if single}}
-	<main class = "alphabet-container" style="width: 500px;">
-	<article class="letter">
-		<div class="letter-content">
-        	<p class="letter-attribution">
-            	<a href="#"> {{letters}} </a>
-        	</p>
-        	<p class="letter-text">
-        	    {{description}}
-        	</p>
-    	</div>
-	</article>
-	</main>
-
-
-{{/if}}
-
+	
+<main class = "alphabet-container">
+	{{#each letters}}
+		{{> letterBox}}
+	{{/each}}
+</main>
