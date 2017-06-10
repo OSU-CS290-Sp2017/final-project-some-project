@@ -1,0 +1,33 @@
+{{!
+	Button to add comments to each letter page after clicking on button to view contents
+}}
+
+<button id="comment-button">+</button>
+
+<div id="modal-backdrop" class="hidden"></div>
+<div id="comment-modal" class="hidden">
+  <div class="modal-dialog">
+
+    <div class="modal-header">
+      <h3>Add a comment</h3>
+      <button type="button" class="modal-close-button">&times;</button>
+    </div>
+
+    <div class="modal-body">
+      <div class="input-element">
+        <label for="comment-url-input">Comment</label>
+        <input type="comment" id="comment-url-input">
+      </div>
+      <div class="input-element">
+        <label for="author-caption-input">Author</label>
+        <textarea id="author-caption-input"></textarea>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="modal-cancel-button">Cancel</button>
+      <button type="button" class="modal-accept-button">Add Comment</button>
+    </div>
+
+  </div>
+</div>
