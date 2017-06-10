@@ -5,16 +5,51 @@ var buttonClick = document.getElementsByClassName('button-click')[0];
 var enableVideo = document.getElementsByTagName('iframe')[0];
 var showMessage = document.getElementsByClassName('message')[0];
 var enableImage = document.getElementsByTagName('img')[0];
+var showCommentButton = document.getElementById('comment-button');
+var showModal = document.getElementById('modal-backdrop');
+var commentModal = document.getElementById('comment-modal');
+var escapeModal = document.getElementsByClassName('modal-close-button')[0];
+var cancelModal = document.getElementsByClassName('modal-cancel-button')[0];
+var acceptModal = document.getElementsByClassName('modal-accept-button')[0];
 
 /*2 addEventListeners, one for showing images and the other for showing videos*/
 buttonClick.addEventListener("click", function(){
 	buttonClick.style.display = "none";
 	showMessage.style.visibility = "visible";
 	enableImage.style.display = "block";
+	showCommentButton.style.display = "block";
 });
 
 buttonClick.addEventListener("click", function(){
 	buttonClick.style.display = "none";
 	showMessage.style.visibility = "visible";
 	enableVideo.style.display = "block";
+	showCommentButton.style.display = "block";
 });
+
+/*Add event listener for clicking on + button*/
+showCommentButton.addEventListener("click", function(){
+	showModal.classList.remove('hidden');
+	commentModal.classList.remove('hidden');
+});
+
+/*Add event listener for closing modal upon clicking in X*/
+escapeModal.addEventListener("click", function(){
+	showModal.classList.add('hidden');
+	commentModal.classList.add('hidden');
+});
+
+/*Add event listener for closing modal upon clicking in CANCEL*/
+cancelModal.addEventListener("click", function(){
+	showModal.classList.add('hidden');
+	commentModal.classList.add('hidden');
+});
+
+/*Close modal when clicking outside the modal itself*/
+window.onclick = function(event){
+	if(event.target == commentModal){
+		showModal.classList.add('hidden');
+		commentModal.classList.add('hidden');
+	}	
+};
+
