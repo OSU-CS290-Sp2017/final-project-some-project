@@ -1,6 +1,8 @@
 {{!
 	Add Javascript stuff here
 }}
+
+/*variable declarations here*/
 var buttonClick = document.getElementsByClassName('button-click')[0];
 var enableVideo = document.getElementsByTagName('iframe')[0];
 var showMessage = document.getElementsByClassName('message')[0];
@@ -11,45 +13,138 @@ var commentModal = document.getElementById('comment-modal');
 var escapeModal = document.getElementsByClassName('modal-close-button')[0];
 var cancelModal = document.getElementsByClassName('modal-cancel-button')[0];
 var acceptModal = document.getElementsByClassName('modal-accept-button')[0];
+var commentInput = document.getElementById('comment-type-input');
+var authorInput = document.getElementById('author-type-input');
+var commentHeader = document.getElementsByClassName('comment-header')[0];
+var commentContainer = document.getElementsByClassName('comment-container')[0];
+var commentStatus = document.getElementsByClassName('commenter');
 
-/*2 addEventListeners, one for showing images and the other for showing videos*/
-buttonClick.addEventListener("click", function(){
-	buttonClick.style.display = "none";
-	showMessage.style.visibility = "visible";
-	enableImage.style.display = "block";
-	showCommentButton.style.display = "block";
-});
 
-buttonClick.addEventListener("click", function(){
-	buttonClick.style.display = "none";
-	showMessage.style.visibility = "visible";
-	enableVideo.style.display = "block";
-	showCommentButton.style.display = "block";
-});
+function getId(){
+	var pathComponents = window.location.pathname.split('/');
+	if (pathComponents[0] !== '' && pathComponents[1] !== 'letters') {
+    	return null;
+  	}
+  	return pathComponents[2];
+}
 
-/*Add event listener for clicking on + button*/
-showCommentButton.addEventListener("click", function(){
-	showModal.classList.remove('hidden');
-	commentModal.classList.remove('hidden');
-});
 
-/*Add event listener for closing modal upon clicking in X*/
-escapeModal.addEventListener("click", function(){
+function store(letterID, comment, author, callback){
+	var postURL = "/letters/" + letterID + "/addComment";
+	var postRequest = new XMLHttpRequest();
+	postRequest.open('POST', postURL);
+	postRequest.setRequestHeader('Content-Type', 'application/json');
+
+	postRequest.addEventListener('load', function(event){
+		var error;
+		if(event.target.status !== 200){
+			error = event.target.response;
+		}
+		callback(error);
+	});
+
+	var postBody = {
+		comment: comment,
+		author: author
+	};
+	postRequest.send(JSON.stringify(postBody));
+}
+
+
+function insertNewComment(){
+	if(commentInput.value == ""){
+		alert("Type something in the comment field");
+	}
+	else if(authorInput.value == ""){
+		alert("Type something in the author field");
+	}
+	else{
+		var letterID = getId();
+		if(letterID){
+			store(letterID, commentInput.value, authorInput.value, function(error){
+				if(error){
+					alert("Can't save this comment.\nMessage: " + error);
+				}
+				else{
+					var commentTemplate = Handlebars.templates.comment;
+					var templateArgs = {
+						comment: commentInput.value,
+						author: authorInput.value
+					};
+					var commentHTML = commentTemplate(templateArgs);
+					commentContainer.insertAdjacentHTML('beforeend', commentHTML);
+				}
+			});
+		}
+	}
+
+
+
 	showModal.classList.add('hidden');
 	commentModal.classList.add('hidden');
-});
+}
 
-/*Add event listener for closing modal upon clicking in CANCEL*/
-cancelModal.addEventListener("click", function(){
-	showModal.classList.add('hidden');
-	commentModal.classList.add('hidden');
+
+
+window.addEventListener('DOMContentLoaded', function(event){
+	if(buttonClick){
+		/*2 addEventListeners, one for showing images and the other for showing videos*/
+		buttonClick.addEventListener("click", function(){
+			commentHeader.classList.remove('hidden');
+			for(var i = 0; i < commentStatus.length; i++)
+				commentStatus[i].style.display = "block";
+
+			buttonClick.style.display = "none";
+			showMessage.style.visibility = "visible";
+			enableImage.style.display = "block";
+			showCommentButton.style.display = "block";
+		});
+
+		buttonClick.addEventListener("click", function(){
+			commentHeader.classList.remove('hidden');
+			for(var i = 0; i < commentStatus.length; i++)
+				commentStatus[i].style.display = "block";
+
+			buttonClick.style.display = "none";
+			showMessage.style.visibility = "visible";
+			enableVideo.style.display = "block";
+			showCommentButton.style.display = "block";
+		});
+	}
+	if(showCommentButton){
+		/*Add event listener for clicking on + button*/
+		showCommentButton.addEventListener("click", function(){
+			showModal.classList.remove('hidden');
+			commentModal.classList.remove('hidden');
+			commentInput.value = "";
+			authorInput.value = "";
+		});
+	}
+	if(escapeModal){
+		/*Add event listener for closing modal upon clicking in X*/
+		escapeModal.addEventListener("click", function(){
+			showModal.classList.add('hidden');
+			commentModal.classList.add('hidden');
+		});
+	}
+	if(cancelModal){
+		/*Add event listener for closing modal upon clicking in CANCEL*/
+		cancelModal.addEventListener("click", function(){
+			showModal.classList.add('hidden');
+			commentModal.classList.add('hidden');
+		});
+	}
+	if(acceptModal){
+		/*Adds comment upon clicking ACCEPT*/
+		acceptModal.addEventListener("click", insertNewComment);
+	}
+
 });
 
 /*Close modal when clicking outside the modal itself*/
-window.onclick = function(event){
-	if(event.target == commentModal){
+window.onclick = function(events){
+	if(events.target == commentModal){
 		showModal.classList.add('hidden');
 		commentModal.classList.add('hidden');
 	}	
 };
-
