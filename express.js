@@ -31,7 +31,6 @@ final.get('/index.html', function(request, response, next){
 });
 
 final.get('/letters/:index', function(request, response, next){
-	console.log("== url params for request:", request.params)
 	var index = request.params.index;
 	var alpha = index;
 	switch(index){
