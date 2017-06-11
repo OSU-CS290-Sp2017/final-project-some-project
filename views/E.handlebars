@@ -11,3 +11,15 @@
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Gz578mCZ90I" frameborder="0" allowfullscreen></iframe>
 
 {{> commentButton}}
+
+
+<h1 class = "comment-header hidden">Comments Here</h1>
+
+<main class = "comment-container">
+
+	{{#each commentField}}
+		{{> comment}}
+	{{/each}}
+
+
+</main>

@@ -11,3 +11,16 @@
 <img src="/ok.png" height="250px" width"250px"></img>
 
 {{> commentButton}}
+
+
+
+<h1 class = "comment-header hidden">Comments Here</h1>
+
+<main class = "comment-container">
+
+	{{#each commentField}}
+		{{> comment}}
+	{{/each}}
+
+
+</main>
