@@ -1,7 +1,9 @@
 var path = require('path');
+var fs = require('fs');
 var express = require('express');
 var handle = require('express-handlebars');
 var letterNumber = require('./letterNumber');
+var letterPage = require('./letterPage');
 var final = express();
 var bodyParser = require('body-parser');
 var port = process.env.PORT || 3000;
@@ -29,6 +31,7 @@ final.get('/index.html', function(request, response, next){
 });
 
 final.get('/letters/:index', function(request, response, next){
+	console.log("== url params for request:", request.params)
 	var index = request.params.index;
 	var alpha = index;
 	switch(index){
@@ -60,8 +63,12 @@ final.get('/letters/:index', function(request, response, next){
 		case 'z': case 'Z': index = 25; break;
 	}
 
+	var comments = letterPage[alpha.toUpperCase()];
+
+
 	if(alpha == 'A' || alpha == 'a'){
 		response.render('A', {
+			commentField: comments.commentField,
 			alphabet: alpha.toUpperCase(),
 			letter: alpha.toUpperCase()
 		});
@@ -69,6 +76,7 @@ final.get('/letters/:index', function(request, response, next){
 
 	else if(alpha == 'B' || alpha == 'b'){
 		response.render('B', {
+			commentField: comments.commentField,
 			alphabet: alpha.toUpperCase(),
 			letter: alpha.toUpperCase()
 		});
@@ -76,6 +84,7 @@ final.get('/letters/:index', function(request, response, next){
 
 	else if(alpha == 'C' || alpha == 'c'){
 		response.render('C', {
+			commentField: comments.commentField,
 			alphabet: alpha.toUpperCase(),
 			letter: alpha.toUpperCase()
 		});
@@ -83,6 +92,7 @@ final.get('/letters/:index', function(request, response, next){
 
 	else if(alpha == 'D' || alpha == 'd'){
 		response.render('D', {
+			commentField: comments.commentField,
 			alphabet: alpha.toUpperCase(),
 			letter: alpha.toUpperCase()
 		});
@@ -90,6 +100,7 @@ final.get('/letters/:index', function(request, response, next){
 
 	else if(alpha == 'E' || alpha == 'e'){
 		response.render('E', {
+			commentField: comments.commentField,
 			alphabet: alpha.toUpperCase(),
 			letter: alpha.toUpperCase()
 		});
@@ -97,6 +108,7 @@ final.get('/letters/:index', function(request, response, next){
 
 	else if(alpha == 'F' || alpha == 'f'){
 		response.render('F', {
+			commentField: comments.commentField,
 			alphabet: alpha.toUpperCase(),
 			letter: alpha.toUpperCase()
 		});
@@ -104,6 +116,7 @@ final.get('/letters/:index', function(request, response, next){
 
 	else if(alpha == 'G' || alpha == 'g'){
 		response.render('G', {
+			commentField: comments.commentField,
 			alphabet: alpha.toUpperCase(),
 			letter: alpha.toUpperCase()
 		});
@@ -111,6 +124,7 @@ final.get('/letters/:index', function(request, response, next){
 
 	else if(alpha == 'H' || alpha == 'h'){
 		response.render('H', {
+			commentField: comments.commentField,
 			alphabet: alpha.toUpperCase(),
 			letter: alpha.toUpperCase()
 		});
@@ -118,6 +132,7 @@ final.get('/letters/:index', function(request, response, next){
 
 	else if(alpha == 'I' || alpha == 'i'){
 		response.render('I', {
+			commentField: comments.commentField,
 			alphabet: alpha.toUpperCase(),
 			letter: alpha.toUpperCase()
 		});
@@ -125,6 +140,7 @@ final.get('/letters/:index', function(request, response, next){
 
 	else if(alpha == 'J' || alpha == 'j'){
 		response.render('J', {
+			commentField: comments.commentField,
 			alphabet: alpha.toUpperCase(),
 			letter: alpha.toUpperCase()
 		});
@@ -132,6 +148,7 @@ final.get('/letters/:index', function(request, response, next){
 
 	else if(alpha == 'K' || alpha == 'k'){
 		response.render('K', {
+			commentField: comments.commentField,
 			alphabet: alpha.toUpperCase(),
 			letter: alpha.toUpperCase()
 		});
@@ -139,6 +156,7 @@ final.get('/letters/:index', function(request, response, next){
 
 	else if(alpha == 'L' || alpha == 'l'){
 		response.render('L', {
+			commentField: comments.commentField,
 			alphabet: alpha.toUpperCase(),
 			letter: alpha.toUpperCase()
 		});
@@ -146,6 +164,7 @@ final.get('/letters/:index', function(request, response, next){
 
 	else if(alpha == 'M' || alpha == 'm'){
 		response.render('M', {
+			commentField: comments.commentField,
 			alphabet: alpha.toUpperCase(),
 			letter: alpha.toUpperCase()
 		});
@@ -153,6 +172,7 @@ final.get('/letters/:index', function(request, response, next){
 
 	else if(alpha == 'N' || alpha == 'n'){
 		response.render('N', {
+			commentField: comments.commentField,
 			alphabet: alpha.toUpperCase(),
 			letter: alpha.toUpperCase()
 		});
@@ -160,6 +180,7 @@ final.get('/letters/:index', function(request, response, next){
 
 	else if(alpha == 'O' || alpha == 'o'){
 		response.render('O', {
+			commentField: comments.commentField,
 			alphabet: alpha.toUpperCase(),
 			letter: alpha.toUpperCase()
 		});
@@ -167,6 +188,7 @@ final.get('/letters/:index', function(request, response, next){
 
 	else if(alpha == 'P' || alpha == 'p'){
 		response.render('P', {
+			commentField: comments.commentField,
 			alphabet: alpha.toUpperCase(),
 			letter: alpha.toUpperCase()
 		});
@@ -174,6 +196,7 @@ final.get('/letters/:index', function(request, response, next){
 
 	else if(alpha == 'Q' || alpha == 'q'){
 		response.render('Q', {
+			commentField: comments.commentField,
 			alphabet: alpha.toUpperCase(),
 			letter: alpha.toUpperCase()
 		});
@@ -181,6 +204,7 @@ final.get('/letters/:index', function(request, response, next){
 
 	else if(alpha == 'R' || alpha == 'r'){
 		response.render('R', {
+			commentField: comments.commentField,
 			alphabet: alpha.toUpperCase(),
 			letter: alpha.toUpperCase()
 		});
@@ -188,6 +212,7 @@ final.get('/letters/:index', function(request, response, next){
 
 	else if(alpha == 'S' || alpha == 's'){
 		response.render('S', {
+			commentField: comments.commentField,
 			alphabet: alpha.toUpperCase(),
 			letter: alpha.toUpperCase()
 		});
@@ -195,6 +220,7 @@ final.get('/letters/:index', function(request, response, next){
 
 	else if(alpha == 'T' || alpha == 't'){
 		response.render('T', {
+			commentField: comments.commentField,
 			alphabet: alpha.toUpperCase(),
 			letter: alpha.toUpperCase()
 		});
@@ -202,6 +228,7 @@ final.get('/letters/:index', function(request, response, next){
 
 	else if(alpha == 'U' || alpha == 'u'){
 		response.render('U', {
+			commentField: comments.commentField,
 			alphabet: alpha.toUpperCase(),
 			letter: alpha.toUpperCase()
 		});
@@ -209,6 +236,7 @@ final.get('/letters/:index', function(request, response, next){
 
 	else if(alpha == 'V' || alpha == 'v'){
 		response.render('V', {
+			commentField: comments.commentField,
 			alphabet: alpha.toUpperCase(),
 			letter: alpha.toUpperCase()
 		});
@@ -216,6 +244,7 @@ final.get('/letters/:index', function(request, response, next){
 
 	else if(alpha == 'W' || alpha == 'w'){
 		response.render('W', {
+			commentField: comments.commentField,
 			alphabet: alpha.toUpperCase(),
 			letter: alpha.toUpperCase()
 		});
@@ -223,6 +252,7 @@ final.get('/letters/:index', function(request, response, next){
 
 	else if(alpha == 'X' || alpha == 'x'){
 		response.render('X', {
+			commentField: comments.commentField,
 			alphabet: alpha.toUpperCase(),
 			letter: alpha.toUpperCase()
 		});
@@ -230,6 +260,7 @@ final.get('/letters/:index', function(request, response, next){
 
 	else if(alpha == 'Y' || alpha == 'y'){
 		response.render('Y', {
+			commentField: comments.commentField,
 			alphabet: alpha.toUpperCase(),
 			letter: alpha.toUpperCase()
 		});
@@ -237,6 +268,7 @@ final.get('/letters/:index', function(request, response, next){
 
 	else if(alpha == 'Z' || alpha == 'z'){
 		response.render('Z', {
+			commentField: comments.commentField,
 			alphabet: alpha.toUpperCase(),
 			letter: alpha.toUpperCase()
 		});
@@ -245,12 +277,46 @@ final.get('/letters/:index', function(request, response, next){
 	else{
 		next();
 	}
+});
 
+final.post('/letters/:index/addComment', function(request, response, next){
+	var index = request.params.index;
+	var letter = letterPage[index];
+	if(letter){
+		if(request.body && request.body.comment){
+			var commentStatus = {
+				comment: request.body.comment,
+				author: request.body.author
+			};
+			letter.commentField = letter.commentField || [];
+			letter.commentField.push(commentStatus);
+			fs.writeFile('letterPage.json', JSON.stringify(letterPage), function(err){
+				if(err){
+					response.status(500).send("SORRY CANT SAVE");
+				}
+				else{
+					response.status(200).send();
+				}
+			});
+		}
+		else{
+			response.status(400).send("Must have URL LUL");
+		}
+	}
+	else{
+		next();
+	}
+
+});
+
+final.get('*', function(request, response){
+	response.status(404).sendFile(path.join(__dirname, 'public', '404LUL.html'));
 });
 
 final.get('*', function(request, response, next){
 	response.render('404LUL', {
 		alphabet: "404",
+		letters: letterNumber,
 		letter: "Does Not Exist"
 	});
 });
@@ -258,6 +324,7 @@ final.get('*', function(request, response, next){
 final.get('/letters/*', function(request, response, next){
 	response.render('404LUL', {
 		alphabet: "404",
+		letters: letterNumber,
 		letter: "Does Not Exist"
 	});
 })
