@@ -18,6 +18,7 @@ var authorInput = document.getElementById('author-type-input');
 var commentHeader = document.getElementsByClassName('comment-header')[0];
 var commentContainer = document.getElementsByClassName('comment-container')[0];
 var commentStatus = document.getElementsByClassName('commenter');
+var allComments = [];
 
 
 function getId(){
@@ -90,7 +91,6 @@ function insertNewComment(){
 
 		var p2 = document.createElement('p');
 		p2.classList.add("author-text");
-
 
 		var commentValue = document.createTextNode(commentInput.value);
 		var authorValue = document.createTextNode(authorInput.value);
