@@ -18,8 +18,6 @@ var authorInput = document.getElementById('author-type-input');
 var commentHeader = document.getElementsByClassName('comment-header')[0];
 var commentContainer = document.getElementsByClassName('comment-container')[0];
 var commentStatus = document.getElementsByClassName('commenter');
-var allComments = [];
-
 
 function getId(){
 	var pathComponents = window.location.pathname.split('/');
@@ -102,6 +100,11 @@ function insertNewComment(){
 		section.appendChild(div);
 		commentContainer.appendChild(section);
 
+		for(var i = 0; i < commentStatus.length; i++){
+			if(commentStatus[i].style.display != "flex")
+				commentStatus[i].style.display = "flex";
+		}
+
 		showModal.classList.add('hidden');
 		commentModal.classList.add('hidden');
 	}
@@ -116,8 +119,7 @@ window.addEventListener('DOMContentLoaded', function(event){
 		buttonClick.addEventListener("click", function(){
 			commentHeader.classList.remove('hidden');
 			for(var i = 0; i < commentStatus.length; i++)
-				commentStatus[i].style.display = "block";
-
+				commentStatus[i].style.display = "flex";
 			buttonClick.style.display = "none";
 			showMessage.style.visibility = "visible";
 			showCommentButton.style.display = "block";
