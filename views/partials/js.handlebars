@@ -59,6 +59,8 @@ function insertNewComment(){
 		alert("Type something in the author field");
 	}
 	else{
+
+
 		var letterID = getId();
 		if(letterID){
 			store(letterID, commentInput.value, authorInput.value, function(error){
@@ -76,12 +78,34 @@ function insertNewComment(){
 				}
 			});
 		}
+
+		var section = document.createElement('section');
+		section.classList.add("commenter");
+
+		var div = document.createElement('div');
+		div.classList.add("field");
+
+		var p1 = document.createElement('p');
+		p1.classList.add("comment-text");
+
+		var p2 = document.createElement('p');
+		p2.classList.add("author-text");
+
+
+		var commentValue = document.createTextNode(commentInput.value);
+		var authorValue = document.createTextNode(authorInput.value);
+		p1.appendChild(commentValue);
+		p2.appendChild(authorValue);
+
+		div.appendChild(p1);
+		div.appendChild(p2);
+		section.appendChild(div);
+		commentContainer.appendChild(section);
+
+		showModal.classList.add('hidden');
+		commentModal.classList.add('hidden');
 	}
 
-
-
-	showModal.classList.add('hidden');
-	commentModal.classList.add('hidden');
 }
 
 
