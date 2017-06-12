@@ -290,7 +290,7 @@ final.post('/letters/:index/addComment', function(request, response, next){
 			};
 			letter.commentField = letter.commentField || [];
 			letter.commentField.push(commentStatus);
-			fs.writeFile('letterPage.json', JSON.stringify(letterPage), function(err){
+			fs.writeFile('letterPage.json', JSON.stringify(letterPage, null, '\t'), function(err){
 				if(err){
 					response.status(500).send("SORRY CANT SAVE");
 				}
