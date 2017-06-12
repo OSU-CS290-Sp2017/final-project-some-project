@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Alphabet</title>
+    <title>S</title>
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" media="screen">
@@ -12,7 +12,7 @@
 
   <body>
     <header>
-      <a href="#"><h1 class="site-title">Alphabets</h1></a>
+      <a href="#"><h1 class="site-title">S</h1></a>
       <nav class="navbar">
         <ul class="navlist">
           <li class="navitem navlink active"><a href="./index.html">Home</a></li>
@@ -50,16 +50,57 @@
       </nav>
     </header>
 
-    <main class = "error-container">
-      <h1>404 NOT FOUND HEHE XD</h1>
-      <h2>The page you are looking for does not exist, good job</h2>
-    </main>
+
+  	<button class = "button-click">CLICK ME FOR AN IMAGE OR VIDEO</button>
+  	<p class="message">School</p>
+    <img src="images/OSU.jpg" height="250px" width"250px"></img>
+
+
+   <button id="comment-button">+</button>
+    <div id="modal-backdrop" class="hidden"></div>
+    <div id="comment-modal" class="hidden">
+      <div class="modal-dialog">
+
+        <div class="modal-header">
+          <h3>Add a comment</h3>
+          <button type="button" class="modal-close-button">&times;</button>
+        </div>
+
+        <div class="modal-body">
+          <div class="input-element">
+            <label for="comment-type-input">Comment</label>
+            <textarea id="comment-type-input"></textarea>
+          </div>
+          <div class="input-element">
+            <label for="author-type-input">Author</label>
+            <input type="author" id="author-type-input">
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="modal-cancel-button">Cancel</button>
+          <button type="button" class="modal-accept-button">Add Comment</button>
+        </div>
+
+      </div>
+    </div>
+
+
+	<h1 class = "comment-header hidden">Comments Here</h1>
+	<main class = "comment-container">
+ 
+
+
+	</main>
 
   </body>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.runtime.js"></script>
-   <script src="style.css"</script>
+  <script src="style.css"</script>
   <script src="/twitTemplate.js"></script>
   <script src="index.js"></script>
+  
 
 </html>
+
+
