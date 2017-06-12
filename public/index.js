@@ -14,6 +14,7 @@ var authorInput = document.getElementById('author-type-input');
 var commentHeader = document.getElementsByClassName('comment-header')[0];
 var commentContainer = document.getElementsByClassName('comment-container')[0];
 var commentStatus = document.getElementsByClassName('commenter');
+var allComments = [];
 
 
 /*2 addEventListeners, one for showing images and the other for showing videos*/
@@ -59,6 +60,14 @@ cancelModal.addEventListener("click", function(){
 	commentModal.classList.add('hidden');
 });
 
+/*Add event where if user clicks outside of the popup, then the modal closes*/
+window.onclick = function(event){
+	if(event.target == commentModal){
+		showModal.classList.add('hidden');
+		commentModal.classList.add('hidden');
+	}
+};
+
 
 /*Adds comment upon clicking ACCEPT*/
 acceptModal.addEventListener("click", function(){
@@ -95,9 +104,3 @@ acceptModal.addEventListener("click", function(){
 		commentModal.classList.add('hidden');
 	}
 });
-
-
-
-
-
-
