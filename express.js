@@ -10,7 +10,8 @@ var port = process.env.PORT || 3000;
 
 final.engine('handlebars', handle({defaultLayout: 'main'}));
 final.set('view engine', 'handlebars');
-final.use(express.static(path.join(__dirname, 'public'))); /*statically retrieves style.css and index.js*/
+final.use(express.static(path.join('/style.css', 'public'))); /*statically retrieves style.css and index.js*/
+final.use(express.static(path.join('/index.js', 'public')));
 final.use(express.static(path.join(__dirname, '/views/images'))); /*statically retrieves all images from /views/images*/
 final.use(bodyParser.json());
 
@@ -308,14 +309,9 @@ final.post('/letters/:index/addComment', function(request, response, next){
 
 });
 
-final.get('*', function(request, response){
-	response.status(404).sendFile(path.join(__dirname, 'public', '404LUL.html'));
-});
-
 final.get('*', function(request, response, next){
 	response.render('404LUL', {
 		alphabet: "404",
-		letters: letterNumber,
 		letter: "Does Not Exist"
 	});
 });
@@ -323,7 +319,6 @@ final.get('*', function(request, response, next){
 final.get('/letters/*', function(request, response, next){
 	response.render('404LUL', {
 		alphabet: "404",
-		letters: letterNumber,
 		letter: "Does Not Exist"
 	});
 })
