@@ -46,7 +46,7 @@ function store(letterID, comment, author, callback){
 		comment: comment,
 		author: author
 	};
-	postRequest.send(JSON.stringify(postBody));
+	postRequest.send(JSON.stringify(postBody, null, '\t'));
 }
 
 
